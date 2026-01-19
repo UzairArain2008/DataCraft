@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtual environment
+venv/
+.env/
+.env.*    # any extra env files
+
+# Data & Models
+storage/datasets/
+storage/trained_models/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / caches
+*.egg-info/
+*.egg
+dist/
+build/
