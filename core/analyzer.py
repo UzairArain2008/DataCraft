@@ -14,4 +14,18 @@ def analyze_dataset(df: pd.DataFrame) -> dict:
     
     summary['columns'] = df.columns.tolist()
     
+    print("=" * 40)
+    print("Dataset Summary:")
+    print(f"    Total Number of Rows: {summary['num_rows']}")
+    print("-" * 40)
+    print(f"    Total number of Columns: {summary['num_columns']}")
+    print("-" * 40)
+    print(f"    Total number of Duplicated rows: {summary['duplicated_rows']}")
+    print("-" * 40)
+    print(f"    Total number of Null values per Comlumns: ")
+    for col, x in summary['null_values'].items():
+        print(F"        {col} = {x}")
+    print("-" * 40)
+    print(f"Columns: {df.columns.tolist()}")
+    
     return summary
