@@ -9,13 +9,16 @@ summary = analyze_dataset(df)
 
 print("Dataset Loaded")
 
+print("-" * 40)
 print("Dataset Summary:")
 print(f"Total Number of Rows: {summary['num_rows']}")
+print("-" * 40)
 print(f"Total number of Columns: {summary['num_columns']}")
-print(f"Duplicated rows: {summary['duplicated_rows']}")
-print("Null values per column:")
-for col, nulls in summary['null_values'].items():
-    print(f"  {col}: {nulls}")
-print("Column types:")
-for col, typ in summary['column_types'].items():
-    print(f"  {col}: {typ}")
+print("-" * 40)
+print(f"Total number of Duplicated rows: {summary['duplicated_rows']}")
+print("-" * 40)
+print(f"Total number of Null values per Comlumns: ")
+for col, x in summary['null_values'].items():
+    print(F"    {col} = {x}")
+print("-" * 40)
+print(f"Columns are {df.columns.tolist()}")
