@@ -1,1 +1,1 @@
-For visitors I am still working on it Right now it's hard for me to build an application soo I have failed to build that now I am starting everythin again from scratch soo hope I'll did
+Hello there! I am still working on this I thought to create CLI first then we will add GUI by using flutter and same logic of python, it was all working fine but now it's not it's too late we'll gonna fix that tommorow
