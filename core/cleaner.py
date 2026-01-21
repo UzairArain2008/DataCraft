@@ -1,16 +1,11 @@
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
-def clean_dataset(df: pd.DataFrame):
-    """
-    Cleans dataset and returns cleaned DataFrame + encoders
-    """
+def clean_dataset(df: pd.DataFrame, target_col: str):
     df = df.copy()
-
-    # Drop duplicated rows
     df = df.drop_duplicates()
 
-    # Handle missing values
+    # Fill nulls
     for col in df.columns:
         if df[col].isnull().sum() > 0:
             if df[col].dtype in ["int64", "float64"]:
@@ -21,7 +16,7 @@ def clean_dataset(df: pd.DataFrame):
     # Encode categorical columns
     encoders = {}
     for col in df.columns:
-        if df[col].dtype == "object":
+        if df[col].dtype == "object" and col != target_col:
             le = LabelEncoder()
             df[col] = le.fit_transform(df[col])
             encoders[col] = le
