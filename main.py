@@ -1,23 +1,21 @@
+from core.analyzer import analyze_dataset
 import pandas as pd
 from pathlib import Path
 
+path = Path(input("Enter dataset path: "))
+df = pd.read_csv(path)
 
-def main():
-    print("Hello There, This is CLI of DataCraft v1")
-    print("For yes write Y, for no write N")
-    
-    path = Path(input("Please enter your file path: ").strip())
+summary = analyze_dataset(df)
 
-    if not path.exists():
-        print("Error: File doesn't exist")
+print("Dataset Loaded")
 
-    if path.suffix != ".csv":
-        print("Error: Only CSV files are supported")
-
-    df = pd.read_csv(path)
-    print("Dataset loaded successfully")
-    print(df.head())
-
-
-if __name__ == "__main__":
-    main()
+print("Dataset Summary:")
+print(f"Total Number of Rows: {summary['num_rows']}")
+print(f"Total number of Columns: {summary['num_columns']}")
+print(f"Duplicated rows: {summary['duplicated_rows']}")
+print("Null values per column:")
+for col, nulls in summary['null_values'].items():
+    print(f"  {col}: {nulls}")
+print("Column types:")
+for col, typ in summary['column_types'].items():
+    print(f"  {col}: {typ}")
